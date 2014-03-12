@@ -37,11 +37,9 @@ public class BookResource {
     public BookResource() {
     
     }
-    @GET
+     @GET
     @Path("/{isbn}")
     @Timed(name = "view-book")
-   
-    
     public BookDto getBookByIsbn(@PathParam("isbn") int isbn) {
     Book book =hash.get(isbn);  
     BookDto bookResponse = new BookDto(book);
@@ -54,6 +52,7 @@ public class BookResource {
     return bookResponse;
     }
     
+     
     @POST
     @Timed(name = "create-book")
     public Response CreateBook(@Valid Book book){
